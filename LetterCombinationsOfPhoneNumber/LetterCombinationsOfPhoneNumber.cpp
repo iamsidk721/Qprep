@@ -7,11 +7,12 @@ using namespace std;
 class LetterCombinationsOfPhoneNumber {
     public:
         void get_combination_backtrack( string digits_letter_combination_map[], vector<string>& final_result_set, string& local_storage, int index, string& digits) 
-{
-        if(index==digits.size())
+{   int x=digits.size();
+     int y=digits_letter_combination_map[digits[index]-'0'].size();
+        if(index==x)
             final_result_set.push_back(local_storage);
         else
-            for(int i=0;i<digits_letter_combination_map[digits[index]-'0'].size();i++) 
+            for(int i=0;i<y;i++) 
             {
                 local_storage.push_back(digits_letter_combination_map[digits[index]-'0'][i]);
                 get_combination_backtrack(digits_letter_combination_map, final_result_set, local_storage, index+1, digits);

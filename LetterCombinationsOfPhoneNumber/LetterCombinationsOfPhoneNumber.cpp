@@ -35,7 +35,15 @@ int main() {
 	FastIO();
 	string digits;
 	cin >> digits;
-	vector<string> combinations = LetterCombinationsOfPhoneNumber().letterCombinations(digits);
-	PrintMatrix<string>().OneDMatrix(combinations, " ");
+	 LetterCombinationsOfPhoneNumber c;
+     vector<string> res = c.letterCombinations(digits);
+
+    for (auto &i : res) 
+    {
+            for (auto &j : i)
+                cout << j;
+            cout << ' ';
+    }
+        cout << endl;
 	return 0;
 }

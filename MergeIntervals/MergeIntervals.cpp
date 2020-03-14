@@ -6,10 +6,29 @@ using namespace std;
 
 class MergeIntervals {
 public:
-	// Implement your solution by completing the below function
-	vector<vector<int>> merge(vector<vector<int>>& intervals) {
-	vector<vector<int>> res;
-
+	 vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(),intervals.end(),[](vector<int>&a, vector<int>&b){
+            if(a[0]<b[0])
+                return true;
+            if(a[0] == b[0]){
+                if(a[1] < b[1])
+                    return true;
+            }
+            return false;
+            });
+        vector<vector<int>> res = intervals;
+        if(!intervals.size())
+            return res;
+        for(int i = 1; i<res.size(); i++){
+            if(res[i-1][0] <= res[i][0] && res[i-1][1] >= res[i][0] && res[i-1][1] <=res[i][1]){
+                res[i-1][1] = res[i][1];
+                res.erase(res.begin() + i);
+                i--;
+            }else if(res[i-1][0] < res[i][0] && res[i-1][1] > res[i][1]){
+                res.erase(res.begin() + i);
+                i--;
+            }
+        }
         return res;
     }
 };

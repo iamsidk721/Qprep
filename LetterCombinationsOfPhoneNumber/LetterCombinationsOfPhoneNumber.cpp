@@ -5,7 +5,7 @@ using namespace std;
 
 class LetterCombinationsOfPhoneNumber {
 public:
-    // Implement your solution by completing the below function
+    
     vector<string> letterCombinations(string digits) {
     	vector<string> res;
         string chmp[10]={"0","1","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
@@ -35,15 +35,7 @@ int main() {
 	FastIO();
 	string digits;
 	cin >> digits;
-	 LetterCombinationsOfPhoneNumber c;
-     vector<string> res = c.letterCombinations(digits);
-
-    for (auto &i : res) 
-    {
-            for (auto &j : i)
-                cout << j;
-            cout << ' ';
-    }
-        cout << endl;
+	vector<string> combinations = LetterCombinationsOfPhoneNumber().letterCombinations(digits);
+	PrintMatrix<string>().OneDMatrix(combinations, " ");
 	return 0;
 }

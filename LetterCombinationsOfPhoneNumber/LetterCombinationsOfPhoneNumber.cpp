@@ -4,37 +4,39 @@
 #include "../crio/cpp/io/PrintMatrix.hpp"
 using namespace std;
 
-
-        vector<string> letterCombinations(string digits) {
-    	vector<string> res;
-        string chmp[10]={"0","1","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-		int x=digits.size();
-		int z=res.size();
-
-		for (int i = 0; i < x; i++)
-        {
-        vector<string> tempres;
-        string chs = chmp[digits[i] - '0'];
-		int y=chs.size();
-   
-        for (int c = 0; c < y;c++)
-        {
-            for (int j = 0; j < z;j++)
-            { tempres.push_back(res[j]+chs[c]);
+class LetterCombinationsOfPhoneNumber {
+    public:
+        void get_combination_backtrack( string digits_letter_combination_map[], vector<string>& final_result_set, string& local_storage, int index, string& digits) 
+{
+        if(index==digits.size())
+            final_result_set.push_back(local_storage);
+        else
+            for(int i=0;i<digits_letter_combination_map[digits[index]-'0'].size();i++) 
+            {
+                local_storage.push_back(digits_letter_combination_map[digits[index]-'0'][i]);
+                get_combination_backtrack(digits_letter_combination_map, final_result_set, local_storage, index+1, digits);
+                local_storage.pop_back();
             }
-           
-        }
-        res = tempres;
-        }
-        return res;
-        }
-  
+}
+
+
+vector<string> letterCombinations(string digits) 
+{
+	vector<string> final_result_set;
+    string digits_letter_combination_map [10] = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    string local_storage;
+
+    get_combination_backtrack(digits_letter_combination_map, final_result_set,local_storage, 0, digits);
+
+    return final_result_set;
+}
+    };
 
 int main() {
 	FastIO();
 	string digits;
 	cin >> digits;
-	vector<string> combinations = letterCombinations(digits);
+	vector<string> combinations = LetterCombinationsOfPhoneNumber().letterCombinations(digits);
 	PrintMatrix<string>().OneDMatrix(combinations, " ");
 	return 0;
 }

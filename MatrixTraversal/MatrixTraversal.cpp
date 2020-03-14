@@ -71,13 +71,18 @@ public:
         vector <int> y;
         y.push_back(z);
         for(int i=0;i<x;i++)
-        {if(res[i]==-1){
+        {
+        if(res[i]==-1)
+        {
         return y;
         break;}
-        else{
-	    return res;}}
+        else
+        {
+	    return res;}
+        }
 	    
-}};
+}
+};
 
 int main() {
     FastIO();

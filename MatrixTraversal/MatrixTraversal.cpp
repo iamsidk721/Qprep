@@ -13,7 +13,7 @@ public:
     if(dirToMove==1)
             { if(currPosX==m-1 && currPosY==n-1)
             {
-                res.push_back("-1");
+                res.push_back(-1);
                 
             }
              else if(currPosY==n-1)
@@ -29,7 +29,7 @@ public:
     if(dirToMove==2)
             {if(currPosX==m-1)
             {
-                res.push_back("-1");
+                res.push_back(-1);
                 
             }else{
              currPosX=currPosX+1;
@@ -39,7 +39,7 @@ public:
     if(dirToMove==3)
             { if(currPosX==0 && currPosY==0)
             {
-                res.push_back("-1");
+                res.push_back(-1);
                 
             }
               else if(currPosY==0)
@@ -56,7 +56,7 @@ public:
     if(dirToMove==4)
             {if(currPosX==0)
             {
-               res.push_back("-1");
+               res.push_back(-1);
             }else{
              currPosX=currPosX-1;
             res.push_back(matrix[currPosX][currPosY]);

@@ -69,9 +69,7 @@ public:
     
             
             
-    }   
-        int x=res.size(); 
-        int z=-1;
+    }   int z=-1;
         vector <int> y;
         y.push_back(z);
         if(f==1)

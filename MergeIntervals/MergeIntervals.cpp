@@ -5,32 +5,33 @@
 using namespace std;
 
 class MergeIntervals {
-public:
-	 vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        sort(intervals.begin(),intervals.end(),[](vector<int>&a, vector<int>&b){
-            if(a[0]<b[0])
-                return true;
-            if(a[0] == b[0]){
-                if(a[1] < b[1])
-                    return true;
-            }
-            return false;
-            });
-        vector<vector<int>> res = intervals;
-        int x=res.size();
-		if(!intervals.size())
-            return res;
-        for(int i = 1; i<x; i++){
-            if(res[i-1][0] <= res[i][0] && res[i-1][1] >= res[i][0] && res[i-1][1] <=res[i][1]){
-                res[i-1][1] = res[i][1];
-                res.erase(res.begin() + i);
-                i--;
-            }else if(res[i-1][0] < res[i][0] && res[i-1][1] > res[i][1]){
-                res.erase(res.begin() + i);
-                i--;
-            }
+vector> merge(vector>& intervals) {
+        sort(intervals.begin(),intervals.end());
+        int i=0;
+        vector> output;
+        if(intervals.size()==0){
+            return output;
         }
-        return res;
+        while(i newInterval;
+            newInterval.push_back(intervals[i][0]);
+            int end=intervals[i][1];
+            while(i=intervals[i+1][0]){
+                    end=max(end,intervals[i+1][1]);
+                    i++;
+                }
+                else{
+                    break;
+                }
+            }
+            newInterval.push_back(end);
+            output.push_back(newInterval);
+            i++;
+            
+        }
+        if(i==intervals.size()-1){
+            output.push_back(intervals[i]);
+        }
+        return output;
     }
 };
 

@@ -1,18 +1,17 @@
-from crio.python.io import PrintMatrix
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
 
-# Implement your solution by completing the below function
-def merge(nums):
-    res = []
+        intervals.sort(key=lambda x: x[0])
 
-    return res
+        merged = []
+        for interval in intervals:
+            # if the list of merged intervals is empty or if the current
+            # interval does not overlap with the previous, simply append it.
+            if not merged or merged[-1][1] < interval[0]:
+                merged.append(interval)
+            else:
+            # otherwise, there is overlap, so we merge the current and previous
+            # intervals.
+                merged[-1][1] = max(merged[-1][1], interval[1])
 
-if __name__ == '__main__':
-    n = int(input())
-    nums = []
-    for i in range(n):
-        row = input().split()
-        row = [int(i) for i in row]
-        nums.append(row)
-    result = merge(nums)
-    PrintMatrix.TwoDMatrix(result)
-    
+        return merged

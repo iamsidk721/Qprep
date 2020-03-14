@@ -17,9 +17,10 @@ public:
             return false;
             });
         vector<vector<int>> res = intervals;
-        if(!intervals.size())
+        int x=res.size();
+		if(!intervals.size())
             return res;
-        for(int i = 1; i<res.size(); i++){
+        for(int i = 1; i<x; i++){
             if(res[i-1][0] <= res[i][0] && res[i-1][1] >= res[i][0] && res[i-1][1] <=res[i][1]){
                 res[i-1][1] = res[i][1];
                 res.erase(res.begin() + i);

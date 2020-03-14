@@ -65,9 +65,13 @@ public:
     
             
             
-    }   
-  
-	    return res;
+    }   int x=res.size();
+        for(int i=0;i<x;i++)
+        {if(res[i]==-1){
+        return res[i];
+        break;}
+        else{
+	    return res;}
     }
 };
 

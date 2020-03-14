@@ -68,10 +68,10 @@ public:
     }   int x=res.size();
         for(int i=0;i<x;i++)
         {if(res[i]==-1){
-        return res[i];
+        return -1;
         break;}
         else{
-	    return res;}
+	    return res;}}
     }
 };
 

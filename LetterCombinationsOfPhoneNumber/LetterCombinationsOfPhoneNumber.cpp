@@ -1,19 +1,19 @@
 #include <bits/stdc++.h>
+#include <iostream>
 #include "../crio/cpp/io/FastIO.hpp"
 #include "../crio/cpp/io/PrintMatrix.hpp"
 using namespace std;
 
 class LetterCombinationsOfPhoneNumber {
-public:
-    
-    vector<string> letterCombinations(string digits) {
+    public:
+        vector<string> letterCombinations(string digits) {
     	vector<string> res;
         string chmp[10]={"0","1","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
 		int x=digits.size();
 		int z=res.size();
 
 		for (int i = 0; i < x; i++)
-    {
+        {
         vector<string> tempres;
         string chs = chmp[digits[i] - '0'];
 		int y=chs.size();
@@ -26,10 +26,10 @@ public:
            
         }
         res = tempres;
-    }
+        }
         return res;
-    }
-};
+        }
+    };
 
 int main() {
 	FastIO();

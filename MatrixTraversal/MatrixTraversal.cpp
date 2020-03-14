@@ -74,7 +74,7 @@ public:
 int main() {
     FastIO();
 	int m, n;
-	cin >> m >> n;
+	cin >> n >> m;
 	vector<vector<int>> matrix;
 	ReadMatrix<int>().TwoDMatrix(n, m, matrix);
 
@@ -82,7 +82,7 @@ int main() {
 	cin >> currPosX >> currPosY;
 	cin >> dirToMove >> stepsToMove;
 
-	vector<int> result = MatrixTraversal().traversalPath(matrix, currPosX, currPosY, dirToMove, stepsToMove,m,n);
+	vector<int> result = MatrixTraversal().traversalPath(matrix, currPosX, currPosY, dirToMove, stepsToMove,n,m);
 	PrintMatrix<int>().OneDMatrix(result, " ");
 	return 0;
 }

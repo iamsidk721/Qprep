@@ -77,7 +77,7 @@ public:
         else{
 	    return res;}}
 	    
-};
+}};
 
 int main() {
     FastIO();

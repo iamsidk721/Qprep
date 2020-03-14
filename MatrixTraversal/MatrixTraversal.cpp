@@ -7,17 +7,74 @@ using namespace std;
 class MatrixTraversal {
 public:
     // Implement your solution by completing the below function	
-    vector<int> traversalPath(vector<vector<int>>& matrix, int currPosX, int currPosY, int dirToMove, int stepsToMove) {
+    vector<int> traversalPath(vector<vector<int>>& matrix, int currPosX, int currPosY, int dirToMove, int stepsToMove, int m , int n) {
         vector<int> res;
-	
-        return res;
+		for(int i=0;i<stepsToMove;i++){
+    if(dirToMove==1)
+            { if(currPosX==m-1 && currPosY==n-1)
+            {
+                res.push_back("-1");
+                
+            }
+             else if(currPosY==n-1)
+             {currPosX=currPosX+1;
+             res.push_back(matrix[currPosX][0]);
+             }
+             else
+             {currPosY=currPosY+1;
+             res.push_back(matrix[currPosX][currPosY]);
+             }
+                
+            }
+    if(dirToMove==2)
+            {if(currPosX==m-1)
+            {
+                res.push_back("-1");
+                
+            }else{
+             currPosX=currPosX+1;
+            res.push_back(matrix[currPosX][currPosY]);
+            
+            }}
+    if(dirToMove==3)
+            { if(currPosX==0 && currPosY==0)
+            {
+                res.push_back("-1");
+                
+            }
+              else if(currPosY==0)
+             {currPosX=currPosX-1;
+             res.push_back(matrix[currPosX][n-1]);
+             
+             }
+             else
+             {currPosY=currPosY-1;
+             res.push_back(matrix[currPosX][currPosY]);
+            }
+                
+            }
+    if(dirToMove==4)
+            {if(currPosX==0)
+            {
+               res.push_back("-1");
+            }else{
+             currPosX=currPosX-1;
+            res.push_back(matrix[currPosX][currPosY]);
+            
+            } }      
+    
+            
+            
+    }   
+  
+	    return res;
     }
 };
 
 int main() {
     FastIO();
-	int n, m;
-	cin >> n >> m;
+	int m, n;
+	cin >> m >> n;
 	vector<vector<int>> matrix;
 	ReadMatrix<int>().TwoDMatrix(n, m, matrix);
 
@@ -25,7 +82,7 @@ int main() {
 	cin >> currPosX >> currPosY;
 	cin >> dirToMove >> stepsToMove;
 
-	vector<int> result = MatrixTraversal().traversalPath(matrix, currPosX, currPosY, dirToMove, stepsToMove);
+	vector<int> result = MatrixTraversal().traversalPath(matrix, currPosX, currPosY, dirToMove, stepsToMove,m,n);
 	PrintMatrix<int>().OneDMatrix(result, " ");
 	return 0;
 }

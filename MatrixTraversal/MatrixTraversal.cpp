@@ -10,7 +10,7 @@ public:
     vector<int> traversalPath(vector<vector<int>>& matrix, int currPosX, int currPosY, int dirToMove, int stepsToMove, int m , int n) {
         vector<int> res;
 		for(int i=0;i<stepsToMove;i++){
-    if(dirToMove==1)
+              if(dirToMove==1)
             { if(currPosX==m-1 && currPosY==n-1)
             {
                 res.push_back(-1);
@@ -68,20 +68,16 @@ public:
     }   
         int x=res.size(); 
         int z=-1;
-        int f=0;
         vector <int> y;
         y.push_back(z);
         for(int i=0;i<x;i++)
         {if(res[i]==-1){
-        f=1;
-        break;}
-        }
-        if(f==0)
-        return res;
-        else
         return y;
+        break;}
+        else{
+	    return res;}}
 	    
-};
+}};
 
 int main() {
     FastIO();

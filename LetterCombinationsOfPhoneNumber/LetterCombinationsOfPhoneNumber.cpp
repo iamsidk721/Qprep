@@ -17,21 +17,11 @@ public:
         vector<string> tempres;
         string chs = chmp[digits[i] - '0'];
 		int y=chs.size();
-        cout<<"chars = "<<chs<<endl;
-        cout<<"digits[i] = "<<digits[i]<<endl;
-        cout<<"digits[i] - '0' = "<<digits[i] - '0'<<endl;
-
-
+   
         for (int c = 0; c < y;c++)
         {
             for (int j = 0; j < z;j++)
-            {
-                cout<<"res[j]= "<<res[j]<<endl;
-                cout<<"chars[c]= "<<chs[c]<<endl;
-                cout<<"res[j]+chars[c]= "<<res[j]+chs[c]<<endl;
-
-
-                tempres.push_back(res[j]+chs[c]);
+            { tempres.push_back(res[j]+chs[c]);
             }
             cout<<endl;
         }

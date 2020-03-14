@@ -68,7 +68,7 @@ public:
     }   int x=res.size(); 
         int z=-1;
         vector <int> y;
-        y=push_back(z);
+        y=y.push_back(z);
         for(int i=0;i<x;i++)
         {if(res[i]==-1){
         return y;

@@ -6,7 +6,7 @@ using namespace std;
 
 class MatrixTraversal {
 public:
-    // Implement your solution by completing the below function	
+    int f=0;
     vector<int> traversalPath(vector<vector<int>>& matrix, int currPosX, int currPosY, int dirToMove, int stepsToMove, int m , int n) {
         vector<int> res;
 		for(int i=0;i<stepsToMove;i++){
@@ -14,6 +14,7 @@ public:
             { if(currPosX==m-1 && currPosY==n-1)
             {
                 res.push_back(-1);
+                f=1;
                 
             }
              else if(currPosY==n-1)
@@ -30,6 +31,7 @@ public:
             {if(currPosX==m-1)
             {
                 res.push_back(-1);
+                f=1;
                 
             }else{
              currPosX=currPosX+1;
@@ -40,6 +42,7 @@ public:
             { if(currPosX==0 && currPosY==0)
             {
                 res.push_back(-1);
+                f=1;
                 
             }
               else if(currPosY==0)
@@ -57,6 +60,7 @@ public:
             {if(currPosX==0)
             {
                res.push_back(-1);
+               f=1;
             }else{
              currPosX=currPosX-1;
             res.push_back(matrix[currPosX][currPosY]);
@@ -70,16 +74,13 @@ public:
         int z=-1;
         vector <int> y;
         y.push_back(z);
-        for(int i=0;i<x;i++)
-        {
-        if(res[i]==-1)
+        if(f==1)
         {
         return y;
-        break;}
+        }
         else
         {
 	    return res;}
-        }
 	    
 }
 };

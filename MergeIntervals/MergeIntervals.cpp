@@ -6,24 +6,24 @@ using namespace std;
 
 class MergeIntervals {
 	public:
- vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        sort(intervals.begin(),intervals.end());
-        vector<vector<int>> result;
-        int x=intervals.size();
+ vector<vector<int>> merge(vector<vector<int>>& inter) {
+        sort(inter.begin(),inter.end());
+        vector<vector<int>> res;
+        int x=inter.size();
 		for(int i=1;i<=x;i++){
 			
-            vector<int> insidearray;
-            if(i<x && intervals[i-1][1] >= intervals[i][0]){
-                intervals[i][0] = min(intervals[i-1][0],intervals[i][0]);
-                intervals[i][1] = max(intervals[i-1][1], intervals[i][1]);
+            vector<int> ins;
+            if(i<x && inter[i-1][1] >= inter[i][0]){
+                inter[i][0] = min(inter[i-1][0],inter[i][0]);
+                inter[i][1] = max(inter[i-1][1], inter[i][1]);
             }
             else{
-                insidearray.push_back(intervals[i-1][0]);
-                insidearray.push_back(intervals[i-1][1]);
-                result.push_back(insidearray);
+                ins.push_back(inter[i-1][0]);
+                ins.push_back(inter[i-1][1]);
+                res.push_back(ins);
             }
         }
-        return result;
+        return res;
     }
 };
 

@@ -12,7 +12,7 @@ class SpiralMatrix {
     
     public:
         vector<int> spiralOrder(vector<vector<int>>& matrix)
-        {
+        {   int x=result.size();
             m = matrix.size();
             if (m < 1)
                 return result;
@@ -25,7 +25,7 @@ class SpiralMatrix {
             int col = -1; // Ensure that it initially starts at 0
             
             // Amount of horizontal/vertical traversals
-            while(result.size() < m*n)
+            while(x < m*n)
             {
                 // Left to Right
                 int limit = rowLoop++/2;
@@ -38,7 +38,7 @@ class SpiralMatrix {
                     result.push_back(matrix[row][col]);
                 
                 // Half way exit
-                if (result.size() >= m*n)
+                if (x >= m*n)
                     break;
                 
                 // Right to Left

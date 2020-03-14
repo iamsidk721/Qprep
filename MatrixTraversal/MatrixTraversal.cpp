@@ -65,7 +65,8 @@ public:
     
             
             
-    }   int x=res.size(); 
+    }   
+        int x=res.size(); 
         int z=-1;
         vector <int> y;
         y.push_back(z);
@@ -75,7 +76,7 @@ public:
         break;}
         else{
 	    return res;}}
-    
+	    
 };
 
 int main() {

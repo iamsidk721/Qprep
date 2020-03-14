@@ -4,8 +4,7 @@
 #include "../crio/cpp/io/PrintMatrix.hpp"
 using namespace std;
 
-class LetterCombinationsOfPhoneNumber {
-    public:
+
         vector<string> letterCombinations(string digits) {
     	vector<string> res;
         string chmp[10]={"0","1","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
@@ -29,13 +28,13 @@ class LetterCombinationsOfPhoneNumber {
         }
         return res;
         }
-    };
+  
 
 int main() {
 	FastIO();
 	string digits;
 	cin >> digits;
-	vector<string> combinations = LetterCombinationsOfPhoneNumber().letterCombinations(digits);
+	vector<string> combinations = letterCombinations(digits);
 	PrintMatrix<string>().OneDMatrix(combinations, " ");
 	return 0;
 }

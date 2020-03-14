@@ -5,33 +5,22 @@
 using namespace std;
 
 class MergeIntervals {
-vector> merge(vector>& intervals) {
+ vector<vector<int>> merge(vector<vector<int>>& intervals) {
         sort(intervals.begin(),intervals.end());
-        int i=0;
-        vector> output;
-        if(intervals.size()==0){
-            return output;
-        }
-        while(i newInterval;
-            newInterval.push_back(intervals[i][0]);
-            int end=intervals[i][1];
-            while(i=intervals[i+1][0]){
-                    end=max(end,intervals[i+1][1]);
-                    i++;
-                }
-                else{
-                    break;
-                }
+        vector<vector<int>> result;
+        for(int i=1;i<=intervals.size();i++){
+            vector<int> insidearray;
+            if(i<intervals.size() && intervals[i-1][1] >= intervals[i][0]){
+                intervals[i][0] = min(intervals[i-1][0],intervals[i][0]);
+                intervals[i][1] = max(intervals[i-1][1], intervals[i][1]);
             }
-            newInterval.push_back(end);
-            output.push_back(newInterval);
-            i++;
-            
+            else{
+                insidearray.push_back(intervals[i-1][0]);
+                insidearray.push_back(intervals[i-1][1]);
+                result.push_back(insidearray);
+            }
         }
-        if(i==intervals.size()-1){
-            output.push_back(intervals[i]);
-        }
-        return output;
+        return result;
     }
 };
 

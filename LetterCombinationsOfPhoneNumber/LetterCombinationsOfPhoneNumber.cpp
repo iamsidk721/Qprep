@@ -23,7 +23,7 @@ public:
             for (int j = 0; j < z;j++)
             { tempres.push_back(res[j]+chs[c]);
             }
-            cout<<endl;
+           
         }
         res = tempres;
     }

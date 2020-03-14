@@ -1,12 +1,6 @@
-chars = abc
-digits[i] = 2
-digits[i] - '0' = 2
 
 
 
-chars = def
-digits[i] = 3
-digits[i] - '0' = 3
 
 
 

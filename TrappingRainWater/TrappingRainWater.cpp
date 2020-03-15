@@ -8,16 +8,17 @@ public:
     int trap(vector<int>& height) {
         int white = 0;
         int mx = 0;
-        for(int i = 0; i < height.size(); i ++) {
+		int x=height.size();
+        for(int i = 0; i < x; i ++) {
             if(height[i] > mx) {
                 white += (height[i] - mx) * i;
                 mx = height[i];
             }
         }
         mx = 0;
-        for(int i = height.size() - 1; i >=0 ; i --) {
+        for(int i = x - 1; i >=0 ; i --) {
             if(height[i] > mx) {
-                white += (height[i] - mx) * (height.size() - 1 - i);
+                white += (height[i] - mx) * (x - 1 - i);
                 mx = height[i];
             }
         }

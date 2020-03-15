@@ -6,8 +6,8 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-      int i=0,j=nums.size()-1; 
+    vector<int> TwoSum(vector<int>& nums, int target) {
+      int i=0,j=nums.size()-1; int x=nums.size();
         vector <int>  a = nums;
         sort(a.begin(),a.end());
         while(i<j)
@@ -24,7 +24,7 @@ public:
         }   
 		int c=0;int l,m;
         
-		for(int k=0;k<nums.size();k++)
+		for(int k=0;k<x;k++)
         {
             if(nums[k]==a[i]&&(c==0))
             {

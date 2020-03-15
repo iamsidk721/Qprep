@@ -2,12 +2,13 @@
 #include "../crio/cpp/io/FastIO.hpp"
 using namespace std;
 
-class Solution {
+class ValidParenthesis {
 public:
     bool isValid(string str) {
         stack<char> s;
+		int x=str.length();
 	    bool ans=true;
-	    for(int i=0;i<str.length();i++)
+	    for(int i=0;i<x;i++)
 	    {
 	        if(str[i]=='{' or str[i]=='(' or str[i]=='[')
 	        {

@@ -8,13 +8,12 @@ class TwoSum {
 public:
     // Implement your solution by completing the below function	
      vector<int> twoSum(vector<int>& nums, int target) {
-        
-        
+        int x=nums.size();        
         std::map<int, int> number;
         vector<int> result;
         bool ret = false;
         
-        for(int i = 0; i<nums.size(); i++){ 
+        for(int i = 0; i<x; i++){ 
             int tag = target-nums[i];
             if(number.count(tag) && number[tag] !=i){
                 result.push_back(i);

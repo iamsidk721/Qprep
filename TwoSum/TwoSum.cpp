@@ -8,8 +8,19 @@ class TwoSum {
 public:
     // Implement your solution by completing the below function	
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> v(2,0);
-
+        vector<int> v; int k,l;
+        for(int i=0;i<nums.size();i++)
+		{
+          for(int j=0;j<nums.size();j++)
+		{
+          if(i+j==target && i!=j)
+		  {
+           v.push_back(i);
+		   v.push_back(j);
+		   break;
+		  }
+		}
+		}
         return v;
     }
 };

@@ -13,7 +13,7 @@ public:
 		{
           for(int j=0;j<x;j++)
 		{
-          if(i+j==target && i!=j)
+          if(nums[i]+nums[j]==target && i!=j)
 		  {
            v.push_back(i);
 		   v.push_back(j);

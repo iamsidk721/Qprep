@@ -7,22 +7,30 @@ using namespace std;
 class TwoSum {
 public:
     // Implement your solution by completing the below function	
-    vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> v; int x=nums.size();
-        for(int i=0;i<x;i++)
-		{
-          for(int j=0;j<x;j++)
-		{
-          if(nums[i]+nums[j]==target && i!=j)
-		  {
-           v.push_back(i);
-		   v.push_back(j);
-		   break;
-		  }
-		}
-		}
-        return v;
+     vector<int> twoSum(vector<int>& nums, int target) {
+        
+        
+        std::map<int, int> number;
+        vector<int> result;
+        bool ret = false;
+        
+        for(int i = 0; i<nums.size(); i++){ 
+            int tag = target-nums[i];
+            if(number.count(tag) && number[tag] !=i){
+                result.push_back(i);
+                result.push_back(number[tag]);
+                ret = true;
+                break;  
+            }
+        if(ret == true){
+           break;
+        }
+        number[nums[i]] = i;
+        }
+        return result;
     }
+
+    
 };
 
 int main() {

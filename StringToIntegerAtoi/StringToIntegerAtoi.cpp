@@ -8,12 +8,7 @@ public:
     // Implement your solution by completing the below function	
     int myAtoi(string str) {
 		int ans = stoi(str),f=0,x=str.size();
-        for(int i=0;i<x;i++)
-		{
-		if(str[i]=='-')
-		f=1;}
-		if(f==1)
-		ans=ans*(-1);
+       
         return ans;
     }
 };

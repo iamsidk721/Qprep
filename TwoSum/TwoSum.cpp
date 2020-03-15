@@ -4,9 +4,9 @@
 #include "../crio/cpp/io/PrintMatrix.hpp"
 using namespace std;
 
-class Solution {
+class TwoSum {
 public:
-    vector<int> TwoSum(vector<int>& nums, int target) {
+    vector<int> twoSum(vector<int>& nums, int target) {
       int i=0,j=nums.size()-1; int x=nums.size();
         vector <int>  a = nums;
         sort(a.begin(),a.end());

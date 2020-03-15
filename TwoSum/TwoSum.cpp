@@ -4,32 +4,46 @@
 #include "../crio/cpp/io/PrintMatrix.hpp"
 using namespace std;
 
-class TwoSum {
+class Solution {
 public:
-    // Implement your solution by completing the below function	
-     vector<int> twoSum(vector<int>& nums, int target) {
-        int x=nums.size();        
-        std::map<int, int> number;
-        vector<int> result;
-        bool ret = false;
+    vector<int> twoSum(vector<int>& nums, int target) {
+      int i=0,j=nums.size()-1; 
+        vector <int>  a = nums;
+        sort(a.begin(),a.end());
+        while(i<j)
+        {
+                   
+				   if(a[i]+a[j]==target)
+                   break;
+                   
+				   else if(a[i]+a[j]>target)
+                    j--;
+                  
+				    else
+                    i++;
+        }   
+		int c=0;int l,m;
         
-        for(int i = 0; i<x; i++){ 
-            int tag = target-nums[i];
-            if(number.count(tag) && number[tag] !=i){
-                result.push_back(i);
-                result.push_back(number[tag]);
-                ret = true;
-                break;  
+		for(int k=0;k<nums.size();k++)
+        {
+            if(nums[k]==a[i]&&(c==0))
+            {
+                l=k;c=1;
+                
             }
-        if(ret == true){
-           break;
+           else if(nums[k]==a[j])
+            {
+                
+                m=k;
+            }
         }
-        number[nums[i]] = i;
-        }
-        return result;
+        
+          if(l>m)
+              return {m,l};
+      
+	      else
+            return{l,m};
     }
-
-    
 };
 
 int main() {

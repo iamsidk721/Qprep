@@ -5,12 +5,30 @@ using namespace std;
 
 class TrappingRainWater {
 public:
-	// Implement your solution by completing the below function`	
-	int trap(vector<int>& height) {
-	    int ans = 0;
-
-	    return ans;
-	}
+    int trap(vector<int>& height) {
+        int white = 0;
+        int mx = 0;
+        for(int i = 0; i < height.size(); i ++) {
+            if(height[i] > mx) {
+                white += (height[i] - mx) * i;
+                mx = height[i];
+            }
+        }
+        mx = 0;
+        for(int i = height.size() - 1; i >=0 ; i --) {
+            if(height[i] > mx) {
+                white += (height[i] - mx) * (height.size() - 1 - i);
+                mx = height[i];
+            }
+        }
+        int total = mx * height.size();
+        int black = 0;
+        for(int i = 0; i < height.size(); i ++) {
+            black += height[i];
+        }
+        int ans = total - white - black;
+        return ans;
+    }
 };
 
 int main() {

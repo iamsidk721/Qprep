@@ -8,10 +8,10 @@ class TwoSum {
 public:
     // Implement your solution by completing the below function	
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> v; int k,l;
-        for(int i=0;i<nums.size();i++)
+        vector<int> v; int x=nums.size();
+        for(int i=0;i<x;i++)
 		{
-          for(int j=0;j<nums.size();j++)
+          for(int j=0;j<x;j++)
 		{
           if(i+j==target && i!=j)
 		  {

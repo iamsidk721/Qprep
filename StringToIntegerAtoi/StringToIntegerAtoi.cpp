@@ -7,23 +7,19 @@ class StringToIntegerAtoi {
 public:
     // Implement your solution by completing the below function	
     int myAtoi(string str) {
-		int x=str.size();
+		int f=0,x=str.size();
 		for(int i=0;i<x;i++)
 		{
 			if(isdigit(str[i]))
 			{
-              int ans = stoi(str);
-              return ans;
-              break;
+			f=1;	
 			}
-			else
-			{
-				return 0;
-				break;
-			}
-			
 		}
-		
+		if(f==1)
+		{int ans = stoi(str);
+        return ans;}
+		else
+		return 0;
     }
 };
 

@@ -24,7 +24,7 @@ public:
         }
         int total = mx * height.size();
         int black = 0;
-        for(int i = 0; i < height.size(); i ++) {
+        for(int i = 0; i < x; i ++) {
             black += height[i];
         }
         int ans = total - white - black;

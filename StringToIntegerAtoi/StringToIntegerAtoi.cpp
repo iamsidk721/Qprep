@@ -7,8 +7,8 @@ class StringToIntegerAtoi {
 public:
     // Implement your solution by completing the below function	
     int myAtoi(string str) {
-		int ans = stoi(str),f=0;
-        for(int i=0;i<str.size();i++)
+		int ans = stoi(str),f=0,x=str.size();
+        for(int i=0;i<x;i++)
 		{
 		if(str[i]=='-')
 		f=1;}
